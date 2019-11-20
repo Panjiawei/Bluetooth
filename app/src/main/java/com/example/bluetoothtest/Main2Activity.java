@@ -209,9 +209,9 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 }
             }, SCAN_PERIOD);
             isScanning = true;
-            mBluetoothAdapter.startLeScan(new UUID[]{UUID.fromString("00001810-0000-1000-8000-00805f9b34fb")}, mLeScanCallback); //开始搜索
+           // mBluetoothAdapter.startLeScan(new UUID[]{UUID.fromString("00001810-0000-1000-8000-00805f9b34fb")}, mLeScanCallback); //开始搜索
 
-           // mBluetoothAdapter.startLeScan(mLeScanCallback); //开始搜索
+            mBluetoothAdapter.startLeScan(mLeScanCallback); //开始搜索
         } else {//false
             isScanning = false;
             mBluetoothAdapter.stopLeScan(mLeScanCallback);//停止搜索
@@ -236,10 +236,10 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                   //  device.createBond();
 
                     //Log.e(TAG,device.getName()+"       "+device.getAddress());
-                    //if(device.getName()!=null&&device.getName().equals("BLEsmart_0001030EEC21E56BFAC5")) {
+                    if(device.getName()!=null&&device.getName().equals("BLEsmart_0001030EEC21E56BFAC5")) {
                         mBluetoothAdapter.stopLeScan(mLeScanCallback);//停止搜索
                         mBluetoothGatt = device.connectGatt(Main2Activity.this, false, mBluetoothGattCallback);
-                    //}
+                    }
 
                 }
             });
@@ -448,8 +448,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     //根据写UUID找到写特征
                     BluetoothGattCharacteristic mBluetoothGattCharacteristic = bluetoothGattCharacteristic;
                 } else*/
-                    if (UUID_NOTIFYS.toString().equals(bluetoothGattCharacteristic.getUuid().toString())) {
-                        Log.e(TAG,bluetoothGattCharacteristic.getUuid().toString());
+                   // if (UUID_NOTIFYS.toString().equals(bluetoothGattCharacteristic.getUuid().toString())) {
+                     //   Log.e(TAG,bluetoothGattCharacteristic.getUuid().toString());
 
                   //  gatt.readCharacteristic(bluetoothGattCharacteristic);
                    // gatt.writeCharacteristic(bluetoothGattCharacteristic);
@@ -468,7 +468,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                         }
 
                     }
-                }
+                //}
 
            // }
 
